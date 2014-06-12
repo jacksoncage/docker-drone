@@ -1,0 +1,20 @@
+#!/bin/bash
+: "${DATASOURCE:="drone.sqlite"}" 
+: "${DRIVER:="sqlite3"}"
+: "${GITLAB:=false}"
+: "${LOG_DEBUG:=false}"
+: "${LOG_FILE:=""}"
+: "${LOG_INFO:=false}"
+: "${LOG_LEVEL:=0}"
+: "${LOG_ONLY:=false}"
+: "${LOG_QUIET:=false}"
+: "${LOG_SPLIT:=false}"
+: "${LOG_WARN:=false}"
+: "${PORT:=":8080"}"
+: "${SSLCERT:=""}"
+: "${SSLKEY:=""}"
+: "${TIMEOUT:=5h0m0s}"
+: "${WORKERS:=2}"
+
+# Start Drone
+/usr/local/bin/droned --datasource=$DATASOURCE --driver=$DRIVER --gitlab.skip-cert-check=$GITLAB --log.debug=$LOG_DEBUG --log.file=$LOG_FILE --log.info=$LOG_INFO --log.level=$LOG_LEVEL --log.only=$LOG_ONLY --log.quiet=$LOG_QUIET --log.split=$LOG_SPLIT --log.warn=$LOG_WARN --port=$PORT --sslcert=$SSLCERT --sslkey=$SSLKEY --timeout=$TIMEOUT --workers=$WORKERS
